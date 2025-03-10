@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Elapsed</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 20px;
+        }
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3em;
+            color: #333;
+            margin-top: 20px;
+        }
+        #elapsedTime {
+            font-size: 3em;
+            color: #333;
+            font-weight: bold;
+            margin-top: 30px;
+        }
+    </style>
+    <!-- Google Fonts for Cursive -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Au Revoir</h1>
+    <div id="elapsedTime">Loading...</div>
+
+    <script>
+        // Set the start date
+        var startDate = new Date('February 24, 2025 02:02:00 GMT-0500').getTime();
+
+        // Update the elapsed time every 1 second
+        setInterval(function() {
+            var currentDate = new Date().getTime();
+            var timeElapsed = currentDate - startDate;
+
+            var days = Math.floor(timeElapsed / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((timeElapsed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((timeElapsed % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((timeElapsed % (1000 * 60)) / 1000);
+
+            // Display the elapsed time
+            document.getElementById("elapsedTime").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+        }, 1000);
+    </script>
+</body>
+</html>
